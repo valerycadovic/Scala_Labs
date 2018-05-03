@@ -49,6 +49,16 @@ object Main extends App{
 
     find(1, sum - 1, Nil)
   }
+  
+  def combosRec(sum: Int): List[String] = {
+    def find(a: Int, b: Int, list: List[String]): List[String] = {
+      if(a <= b) List(a.toString + " + " + b.toString
+        + " = " + sum.toString) ::: find(a + 1, b - 1, list)
+      else
+        Nil
+    }
+    find(1, sum - 1, Nil)
+  }
 
 
   // Вариант 11:  Найти определённый интеграл методом трапеций
