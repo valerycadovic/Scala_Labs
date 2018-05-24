@@ -12,7 +12,17 @@ class Tests extends FlatSpec with Matchers{
     Main.getUnion(a, b) should be (List(1, 2, 3, 4))
   }
 
-
+  it should "get current date" in {
+    Main.currentDate("M/D h:m") should be (
+      Calendar.getInstance.get(Calendar.MONTH).toString +
+        "/" +
+        Calendar.getInstance.get(Calendar.DAY_OF_MONTH).toString +
+        " " +
+        Calendar.getInstance.get(Calendar.HOUR).toString +
+        ":" +
+        Calendar.getInstance.get(Calendar.MINUTE).toString
+    )
+  }
 
   it should "find minimum" in {
     val a = List(2, 1, 5, 4)
